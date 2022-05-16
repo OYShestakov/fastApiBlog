@@ -1,0 +1,22 @@
+#docker-compose.yml
+version: "3.0"
+services:
+  app:
+    build: .
+    network_mode: host
+    volumes:
+      - .:/fastApiBlog
+    depends_on:
+      - db
+    environment:
+      DB_USER: root
+      DB_HOST: db
+      DB_PASSWORD: root
+    ports:
+      - "8000:8000"
+  db:
+    image: postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: blog
+      POSTGRES_PASSWORD: Iecnfrjds2016
