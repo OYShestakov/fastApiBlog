@@ -13,4 +13,4 @@ class Author(Base):
     name = Column(String(100), nullable=False)
     email = Column(String(100), unique=True, nullable=False)
     created_at = Column(DateTime(), default=datetime.now)
-    posts = relationship(Post)
+    posts = relationship("Post", lazy="joined")

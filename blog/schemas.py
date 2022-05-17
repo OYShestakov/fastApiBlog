@@ -21,7 +21,6 @@ class PostCreate(PostBase):
 
 
 class AuthorBase(BaseModel):
-    id: int
     name: str
     email: str
     created_at: datetime
@@ -31,7 +30,13 @@ class AuthorBase(BaseModel):
 
 
 class AuthorList(AuthorBase):
-    pass
+    id: int
+    posts: list = []
+
+
+class AuthorListCount(AuthorBase):
+    id: int
+    posts = int
 
 
 class AuthorCreate(AuthorBase):

@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from core.utils import get_db
 from blog import service
-from blog.schemas import AuthorCreate, AuthorList
+from blog.schemas import AuthorCreate, AuthorList, AuthorListCount
 
 router = APIRouter()
 
@@ -18,9 +18,9 @@ def create_author(item: AuthorCreate, db: Session = Depends(get_db)):
     return service.create_author(db, item)
 
 
-@router.get("/", response_model=List[AuthorList], name='Получить всех авторов и количество публикаций')
-def get_author(db: Session = Depends(get_db)):
-    return service.get_author(db)
+@router.get("/", response_model=List[AuthorListCount], name='Получить всех авторов и количество публикаций')
+def get_author_post_count(db: Session = Depends(get_db)):
+    return service.get_author_post_count(db)
 
 
 
