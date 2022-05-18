@@ -36,7 +36,7 @@ class AuthorList(AuthorBase):
 
 class AuthorListCount(AuthorBase):
     id: int
-    posts = int
+    count_posts: int = 0
 
 
 class AuthorCreate(AuthorBase):

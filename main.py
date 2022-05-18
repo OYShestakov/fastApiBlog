@@ -7,6 +7,7 @@ from routes import routes
 
 app = FastAPI()
 
+
 @app.middleware("http")
 async def db_session_middleware(request: Request, call_next):
     response = Response("internal server error", status_code=500)

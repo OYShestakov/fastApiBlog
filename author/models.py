@@ -3,8 +3,8 @@ from datetime import datetime
 from sqlalchemy import Column, String, Integer, DateTime
 from sqlalchemy.orm import relationship
 
-from blog.models import Post
 from core.db import Base
+
 
 class Author(Base):
     __tablename__ = "author"
